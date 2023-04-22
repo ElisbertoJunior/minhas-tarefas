@@ -1,4 +1,3 @@
-import { describe } from 'node:test'
 import Task from '../../components/Task'
 import * as S from './styles'
 
@@ -7,7 +6,7 @@ const tasks = [
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
     priority: 'importante',
-    status: 'pendente'
+    status: 'concluída'
   },
   {
     title: 'Estudar TypeScript',
@@ -30,7 +29,7 @@ const tasks = [
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'importante',
+    priority: 'urgente',
     status: 'pendente'
   }
 ]
