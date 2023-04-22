@@ -1,36 +1,37 @@
 import Task from '../../components/Task'
 import * as S from './styles'
+import * as enums from '../../utils/enums/Task'
 
 const tasks = [
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'importante',
-    status: 'concluída'
+    priority: enums.Priority.IMPORTANTE,
+    status: enums.Status.CONCLUIDA
   },
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.Priority.IMPORTANTE,
+    status: enums.Status.PENDENTE
   },
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.Priority.NORMAL,
+    status: enums.Status.PENDENTE
   },
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.Priority.URGENTE,
+    status: enums.Status.CONCLUIDA
   },
   {
     title: 'Estudar TypeScript',
     description: 'Assistir modulo 31',
-    priority: 'urgente',
-    status: 'pendente'
+    priority: enums.Priority.IMPORTANTE,
+    status: enums.Status.PENDENTE
   }
 ]
 
