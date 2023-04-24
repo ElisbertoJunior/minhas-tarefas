@@ -9,7 +9,7 @@ type TagProps = {
   parameter: 'status' | 'priority'
 }
 
-function returnColor(props: TagProps): string {
+const returnColor = (props: TagProps): string => {
   if (props.parameter === 'priority') {
     if (props.priority === enums.Priority.URGENTE) return variables.red
     if (props.priority === enums.Priority.IMPORTANTE) return variables.yellow2
