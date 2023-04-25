@@ -4,15 +4,23 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 
 const TodoList = () => {
-  const { tasks } = useSelector((state: RootReducer) => state)
+  const { itens } = useSelector((state: RootReducer) => state.tasks)
+  const { term } = useSelector((state: RootReducer) => state.filter)
+
+  const filterTasks = () => {
+    return itens.filter(
+      ({ title }) => title.toLowerCase().search(term.toLowerCase()) >= 0
+    )
+  }
 
   return (
     <S.Container>
-      <p>2 tarefas marcadas como: &quot;categoriae&quot; &quot;termo&quot;</p>
+      <p>2 tarefas marcadas como: &quot;categoria&quot; &quot;{term}&quot;</p>
       <ul>
-        {tasks?.map(({ description, priority, status, title }) => (
+        {filterTasks().map(({ description, priority, status, title, id }) => (
           <li key={title}>
             <Task
+              id={id}
               title={title}
               description={description}
               priority={priority}

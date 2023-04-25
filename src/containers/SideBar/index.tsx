@@ -1,11 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux'
 import FilterCard from '../../components/FilterCard'
 import * as S from './styles'
+import { RootReducer } from '../../store'
+import { handleTerm } from '../../store/reducers/filter'
 
 const SideBar = () => {
+  const dispatch = useDispatch()
+  const { term } = useSelector((state: RootReducer) => state.filter)
+
   return (
     <S.Aside>
       <div>
-        <S.Input type="text" placeholder="Buscar" />
+        <S.Input
+          type="text"
+          placeholder="Buscar"
+          value={term}
+          onChange={({ target }) => dispatch(handleTerm(target.value))}
+        />
         <S.Filters>
           <FilterCard counter={1} subtitle={'pendentes'} />
           <FilterCard counter={2} subtitle={'concluidas'} />
