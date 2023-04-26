@@ -17,7 +17,7 @@ const initialState: TasksState = {
     ),
     new Task(
       'Estudar JavaScript',
-      enums.Priority.IMPORTANTE,
+      enums.Priority.NORMAL,
       enums.Status.CONCLUIDA,
       'Estudar Map, Filter e Reduce',
       2
