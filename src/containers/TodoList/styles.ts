@@ -6,3 +6,9 @@ export const Container = styled.main`
 
   overflow-y: scroll;
 `
+export const Result = styled.p`
+  font-weight: bold;
+  display: block;
+  margin: 40px 0;
+  font-size: 18px;
+`
