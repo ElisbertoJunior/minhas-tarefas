@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux/es/exports'
 import Task from '../../components/Task'
-import * as S from './styles'
+import { MainContainer, Title } from '../../styles'
 import { RootReducer } from '../../store'
 
 const TodoList = () => {
@@ -45,9 +45,8 @@ const TodoList = () => {
   const message = displayResult(tasks.length)
 
   return (
-    <S.Container>
-      <S.Result>{message}</S.Result>
-
+    <MainContainer>
+      <Title as={'p'}>{message}</Title>
       <ul>
         {tasks.map(({ description, priority, status, title, id }) => (
           <li key={title}>
@@ -61,7 +60,7 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
-    </S.Container>
+    </MainContainer>
   )
 }
 

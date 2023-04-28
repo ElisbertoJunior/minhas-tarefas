@@ -54,9 +54,20 @@ const tasksSlice = createSlice({
       if (taskIndex >= 0) {
         state.itens[taskIndex] = action.payload
       }
+    },
+    register: (state, action: PayloadAction<Task>) => {
+      const taskExists = state.itens.find(
+        (t) => t.title.toLowerCase() === action.payload.title.toLowerCase()
+      )
+
+      if (taskExists) {
+        alert('Ja existe uma terefa com esse nome')
+      } else {
+        state.itens.push(action.payload)
+      }
     }
   }
 })
 
-export const { remove, edit } = tasksSlice.actions
+export const { remove, edit, register } = tasksSlice.actions
 export default tasksSlice.reducer

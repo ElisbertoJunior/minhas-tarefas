@@ -12,13 +12,3 @@ export const Filters = styled.div`
   gap: 8px;
   margin-top: 16px;
 `
-
-export const Input = styled.input`
-  padding: 8px;
-  border-radius: 8px;
-  background-color: #fff;
-  border-color: #666666;
-  color: #666666;
-  font-weight: bold;
-  width: 100%;
-`
