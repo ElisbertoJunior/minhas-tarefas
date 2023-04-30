@@ -55,7 +55,7 @@ const tasksSlice = createSlice({
         state.itens[taskIndex] = action.payload
       }
     },
-    register: (state, action: PayloadAction<Task>) => {
+    register: (state, action: PayloadAction<Omit<Task, 'id'>>) => {
       const taskExists = state.itens.find(
         (t) => t.title.toLowerCase() === action.payload.title.toLowerCase()
       )
@@ -63,11 +63,29 @@ const tasksSlice = createSlice({
       if (taskExists) {
         alert('Ja existe uma terefa com esse nome')
       } else {
-        state.itens.push(action.payload)
+        const lastTask = state.itens[state.itens.length - 1]
+
+        const newTask = {
+          ...action.payload,
+          id: lastTask ? lastTask.id + 1 : 1
+        }
+        state.itens.push(newTask)
+      }
+    },
+    handleStatus: (
+      state,
+      action: PayloadAction<{ id: number; finished: boolean }>
+    ) => {
+      const taskIndex = state.itens.findIndex((t) => t.id === action.payload.id)
+
+      if (taskIndex >= 0) {
+        state.itens[taskIndex].status = action.payload.finished
+          ? enums.Status.CONCLUIDA
+          : enums.Status.PENDENTE
       }
     }
   }
 })
 
-export const { remove, edit, register } = tasksSlice.actions
+export const { remove, edit, register, handleStatus } = tasksSlice.actions
 export default tasksSlice.reducer

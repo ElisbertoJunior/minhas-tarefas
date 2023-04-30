@@ -1,5 +1,7 @@
+import { Label } from './../FilterCard/styles'
 import styled from 'styled-components'
 import variables from '../../styles/variables'
+import { Button } from '../../styles/index'
 
 import * as enums from '../../utils/enums/Task'
 
@@ -27,11 +29,17 @@ export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 8px;
+
+  Label {
+    display: flex;
+    align-items: center;
+  }
 `
 
 export const Title = styled.h3`
   font-weight: bold;
   font-size: 18px;
+  margin-left: 8px;
 `
 export const Tag = styled.span<TagProps>`
   padding: 4px 8px;
@@ -61,18 +69,6 @@ export const Description = styled.textarea`
 export const ActionBar = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 16px;
-`
-
-export const Button = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  background-color: #2f3640;
-  border-radius: 8px;
-  margin-right: 8px;
 `
 
 export const CancelButton = styled(Button)`

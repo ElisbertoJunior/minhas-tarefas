@@ -5,7 +5,7 @@ import AddButton from '../../components/AddButton'
 const Home = () => {
   return (
     <>
-      <SideBar />
+      <SideBar showFilters />
       <TodoList />
       <AddButton />
     </>

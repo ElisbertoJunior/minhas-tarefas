@@ -4,7 +4,7 @@ import { FormEvent, useState } from 'react'
 import { MainContainer, Title, Input, SaveButton } from '../../styles/index'
 import { Form, Options, Option } from './styles'
 import * as enums from '../../utils/enums/Task'
-import Task from '../../models/Task'
+
 import { register } from '../../store/reducers/Tasks'
 
 const FormTask = () => {
@@ -17,15 +17,15 @@ const FormTask = () => {
 
   const registerTask = (event: FormEvent) => {
     event.preventDefault()
-    const taskForAdd = new Task(
-      title,
-      priority,
-      enums.Status.PENDENTE,
-      description,
-      9
-    )
 
-    dispatch(register(taskForAdd))
+    dispatch(
+      register({
+        title,
+        priority,
+        description,
+        status: enums.Status.PENDENTE
+      })
+    )
     navigate('/')
   }
 
